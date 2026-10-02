@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#090d18">
+    <meta name="description" content="Investigador — jogo de dedução e impostor">
+    <title>Investigador — Jogo de Dedução</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-shell">
+        <section class="setup-screen" id="setup-screen">
+            <header class="brand">
+                <div class="brand-icon">🕵️</div>
+                <div class="brand-copy">
+                    <span class="eyebrow">JOGO DE DEDUÇÃO</span>
+                    <h1>Investigador</h1>
+                    <p>Descubra quem está escondendo a verdade.</p>
+                </div>
+            </header>
+
+            <div class="setup-card">
+                <div class="section-heading">
+                    <div>
+                        <span class="step">01</span>
+                        <h2>Escolha o tema</h2>
+                    </div>
+                    <span class="player-count" id="selected-theme">Objetos</span>
+                </div>
+
+                <div class="theme-grid" id="theme-grid">
+                    <button class="theme-option selected" type="button" data-theme="objetos">
+                        <span class="theme-icon">📦</span>
+                        <span><strong>Objetos</strong><small>Coisas do dia a dia</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="esportes">
+                        <span class="theme-icon">⚽</span>
+                        <span><strong>Esportes</strong><small>Modalidades e atividades</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="paises">
+                        <span class="theme-icon">🌎</span>
+                        <span><strong>Países</strong><small>Lugares pelo mundo</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="comidas">
+                        <span class="theme-icon">🍔</span>
+                        <span><strong>Comidas</strong><small>Sabores e pratos</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="filmes">
+                        <span class="theme-icon">🎬</span>
+                        <span><strong>Filmes</strong><small>Clássicos e sucessos</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="musicas">
+                        <span class="theme-icon">🎵</span>
+                        <span><strong>Músicas</strong><small>Artistas e hits</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="empregos">
+                        <span class="theme-icon">💼</span>
+                        <span><strong>Empregos</strong><small>Profissões e trabalhos</small></span>
+                    </button>
+                    <button class="theme-option" type="button" data-theme="marcas">
+                        <span class="theme-icon">🏷️</span>
+                        <span><strong>Marcas</strong><small>Carros, roupas, tech e mais</small></span>
+                    </button>
+                    <button class="theme-option theme-random" type="button" data-theme="aleatorio">
+                        <span class="theme-icon">🎲</span>
+                        <span><strong>Aleatório</strong><small>Uma categoria surpresa a cada partida</small></span>
+                    </button>
+                </div>
+
+                <div class="section-heading players-heading">
+                    <div>
+                        <span class="step">02</span>
+                        <h2>Monte sua equipe</h2>
+                    </div>
+                    <span class="player-count" id="player-count">0 jogadores</span>
+                </div>
+
+                <form class="player-form" id="player-form">
+                    <label class="sr-only" for="input">Nome do jogador</label>
+                    <input id="input" type="text" maxlength="24" autocomplete="off" placeholder="Digite um nome...">
+                    <button class="primary-button add-button" id="add-name" type="submit">
+                        <span>+</span> Adicionar
+                    </button>
+                </form>
+
+                <p class="input-error" id="input-erro" aria-live="polite"></p>
+
+                <div class="players-panel">
+                    <div class="panel-title">
+                        <span>Participantes</span>
+                        <span class="mini-hint">mínimo 4 • máximo 20</span>
+                    </div>
+                    <ul id="list-players" aria-live="polite"></ul>
+                    <div class="empty-state" id="empty-state">
+                        <span>👥</span>
+                        <strong>Ninguém entrou ainda</strong>
+                        <small>Adicione os jogadores acima para começar.</small>
+                    </div>
+                </div>
+
+                <button class="start-button" id="play-game" type="button">
+                    <span>Começar partida</span>
+                    <b>→</b>
+                </button>
+            </div>
+        </section>
+
+        <section class="game-screen hidden" id="display-game" aria-live="polite"></section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
